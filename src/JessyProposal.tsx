@@ -17,8 +17,7 @@ function JessyProposal() {
       image: "/character/two.png",
     },
     {
-      content: `Then we went on our first date…And I realized—yep, I want this girl. For life.
-      `,
+      content: `I still remember the first day I saw you, wind blowing your hair, sexy abs showing out, your eyes taking me out.`,
       image: "/character/three.png",
     },
     {
