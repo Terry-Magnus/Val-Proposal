@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
+import sendEmailNotification from "./services/emailjs";
 
 function JessyProposal() {
+  const email = "akanizara@gmail.com";
   const steps = [
     {
       content: "Heyyyyy, pretty girl.",
@@ -54,6 +56,11 @@ hold your hands, and look into your pretty eyes.`,
       img.src = path;
     });
   }, []);
+
+  const handleYesClick = () => {
+    sendEmailNotification(email);
+    setSheWantsToBeMyValentine(true);
+  };
 
   return (
     <>
@@ -122,18 +129,14 @@ hold your hands, and look into your pretty eyes.`,
         {currentStep === 6 && (
           <>
             <button
-              onClick={() => {
-                setSheWantsToBeMyValentine(true);
-              }}
+              onClick={handleYesClick}
               className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
             >
               Yes
             </button>
 
             <button
-              onClick={() => {
-                setSheWantsToBeMyValentine(true);
-              }}
+              onClick={handleYesClick}
               className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold"
             >
               Yes

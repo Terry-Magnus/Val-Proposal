@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
+import sendEmailNotification from "./services/emailjs";
 
 const RomanticValentineProposal = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isAccepted, setIsAccepted] = useState(false);
   const { width, height } = useWindowSize();
+  const email = "crackmastermike@gmail.com";
 
   const steps = [
     {
@@ -63,6 +65,10 @@ const RomanticValentineProposal = () => {
     },
   ];
 
+  const handleYesClick = () => {
+    sendEmailNotification(email);
+    setIsAccepted(true);
+  };
   useEffect(() => {
     const imagePaths = [
       ...steps.map((step) => step.image),
@@ -166,16 +172,14 @@ const RomanticValentineProposal = () => {
       {currentStep === steps.length - 1 && (
         <div className="mx-15">
           <button
-            onClick={() => setIsAccepted(true)}
+            onClick={handleYesClick}
             className="bg-white text-purple-800 py-3  text-xl rounded-xl w-full font-semibold"
           >
             Yes
           </button>
 
           <button
-            onClick={async () => {
-              setIsAccepted(true);
-            }}
+            onClick={handleYesClick}
             className="bg-white text-purple-800 py-3 text-xl rounded-xl w-full mt-5 font-semibold"
           >
             Yes
