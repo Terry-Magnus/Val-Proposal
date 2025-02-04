@@ -12,7 +12,7 @@ function JessyProposal() {
       image: "/character/one.png",
     },
     {
-      content: `It's been 2000+ days I have known and loved you. 2000!!!`,
+      content: `It's been 1000+ days I have known and loved you. 1000!!!`,
       image: "/character/two.png",
     },
     {
