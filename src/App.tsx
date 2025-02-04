@@ -6,7 +6,7 @@ function App() {
   return (
     <Routes>
       <Route path="/moonshine" element={<RomanticValentineProposal />} />
-      <Route path="/my-love" element={<JessyProposal />} />
+      <Route path="/" element={<JessyProposal />} />
     </Routes>
   );
 }
