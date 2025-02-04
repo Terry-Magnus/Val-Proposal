@@ -2,22 +2,6 @@ import { useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
-import { LogSnag } from "@logsnag/node";
-
-const logsnag = new LogSnag({
-  token: "LOGSNAG_TOKEN",
-  project: "PROJECT_NAME",
-});
-
-const track = async () => {
-  await logsnag.track({
-    channel: "yes",
-    event: "Valentine's Day",
-    description: "She said yes!",
-    icon: "💖",
-    notify: true,
-  });
-};
 
 function JessyProposal() {
   const steps = [
@@ -138,9 +122,8 @@ hold your hands, and look into your pretty eyes.`,
         {currentStep === 6 && (
           <>
             <button
-              onClick={async () => {
+              onClick={() => {
                 setSheWantsToBeMyValentine(true);
-                await track();
               }}
               className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
             >
@@ -148,9 +131,8 @@ hold your hands, and look into your pretty eyes.`,
             </button>
 
             <button
-              onClick={async () => {
+              onClick={() => {
                 setSheWantsToBeMyValentine(true);
-                await track();
               }}
               className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold"
             >
