@@ -8,7 +8,7 @@ function JessyProposal() {
   const email = "akanizara@gmail.com";
   const steps = [
     {
-      content: "Heyyyyy, pretty girl.",
+      content: "Heyyyy, Big Favsssss.",
       image: "/character/one.png",
     },
     {
