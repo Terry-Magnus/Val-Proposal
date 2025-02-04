@@ -25,8 +25,7 @@ function JessyProposal() {
       image: "/character/four.png",
     },
     {
-      content: `I look forward to when I'll see you again,
-hold your hands, and look into your pretty eyes.`,
+      content: `I can't wait to see you, can't wait to hug you, can't wait to do a whole lot of things that I will be whispering in you ear soon`,
       image: "/character/five.png",
     },
     {
