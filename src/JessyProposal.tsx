@@ -12,9 +12,8 @@ function JessyProposal() {
       image: "/character/one.png",
     },
     {
-      content: `Recently, we met.
-      And somehow, you've been on my mind ever since.
-      `,
+      content: `It's been 2000+ days I have known and loved you. 2000!!! 
+• I still remember the first day I saw you, wind blowing your hair, sexy abs showing out, your eyes taking me out. `,
       image: "/character/two.png",
     },
     {
