@@ -12,35 +12,33 @@ const RomanticValentineProposal = () => {
 
   const steps = [
     {
-      title: `Hey Moonshine`,
+      title: `Hey Moonshine....`,
       image: "/character/one.png",
       background: "bg-gradient-to-br from-pink-300 to-pink-500",
     },
     {
       content: `
-      I can still remember the first day i saw you in your mom's shop. \n God you looked so beautiful
+      I can still remember the first day i saw you in your mom's shop. \n God you looked so beautiful. I thought you were your mom's baby sister lol
       `,
       background: "bg-gradient-to-br from-pink-500 to-rose-300",
 
       image: "/character/five.png",
     },
     {
-      content: `There are so many qualities i could think about but i can't fit all of them into words `,
+      content: `There are so many things I love about you. Your beauty captivates me, your voice soothes me, and your smile brightens my day. But it's not just your outer beauty that I adore - your kindness, intelligence, and quirky personality all make my heart skip a beat.`,
       background: "bg-gradient-to-br from-rose-300 to-rose-500",
 
       image: "/character/four.png",
     },
     {
       content: `
-      There's just something MAGICAL..... 
+      There's just something MAGICAL about you mami..... 
       `,
       image: "/character/three.png",
       background: "bg-gradient-to-br from-rose-500 to-fuchsia-300",
     },
     {
-      content: `
-      The way you make me smile just by thinking about you.... 
-      `,
+      content: `Sometimes, I catch myself smiling for no reason at all... and then I realize I'm thinking of you. It's weird, because I used to be a more distant person, but you've changed that.`,
       background: "bg-gradient-to-br from-fuchsia-300 to-fuchsia-500",
       image: "/character/three.png",
     },
@@ -59,7 +57,7 @@ const RomanticValentineProposal = () => {
       image: "/character/six.png",
     },
     {
-      title: "Will you be my Valentine? ",
+      title: "My Sweet Lollipop, my Moonshine, Will you be my Valentine???",
       image: "/character/seven.png",
       background: "bg-gradient-to-br from-purple-500 to-purple-800",
     },
