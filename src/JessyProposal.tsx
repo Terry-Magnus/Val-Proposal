@@ -21,8 +21,7 @@ function JessyProposal() {
       image: "/character/three.png",
     },
     {
-      content: `You're beautiful, you're smart, you're fun,
-and you make spending time together feel too short.`,
+      content: `I love you so much mama, words really aren't enough to describe how amazing you are.`,
       image: "/character/four.png",
     },
     {
