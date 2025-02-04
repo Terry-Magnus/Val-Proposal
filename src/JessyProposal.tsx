@@ -25,15 +25,15 @@ function JessyProposal() {
       image: "/character/four.png",
     },
     {
-      content: `I can't wait to see you, can't wait to hug you, can't wait to do a whole lot of things that I will be whispering in you ear soon`,
+      content: `I can't wait to see you, can't wait to hug you, can't wait to do a whole lot of things that I will be whispering in you ear real soon`,
       image: "/character/five.png",
     },
     {
-      content: "So now I've got a question for you…",
+      content: "So Dr Lawerence Favour Efe, I just have one question...",
       image: "/character/six.png",
     },
     {
-      content: "Will you be my Valentine?",
+      content: "Will you be my Valentine????",
       image: "/character/seven.png",
     },
   ];
