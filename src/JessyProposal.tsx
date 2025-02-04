@@ -12,8 +12,7 @@ function JessyProposal() {
       image: "/character/one.png",
     },
     {
-      content: `It's been 2000+ days I have known and loved you. 2000!!! 
-• I still remember the first day I saw you, wind blowing your hair, sexy abs showing out, your eyes taking me out. `,
+      content: `It's been 2000+ days I have known and loved you. 2000!!!`,
       image: "/character/two.png",
     },
     {
