@@ -3,39 +3,40 @@ import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import sendEmailNotification from "./services/emailjs";
+const steps = [
+  {
+    content: "Heyyyy, Big tittiesss!.",
+    image: "/character/one.png",
+  },
+  {
+    content: `Just a few months and you're already almost my favorite person`,
+    image: "/character/two.png",
+  },
+  {
+    content: `And honestly cannot wait to see you (small sha, not too much).`,
+    image: "/character/three.png",
+  },
+  {
+    content: `Can't wait to binge watch more episodes of The Office and even Rick and Morty while whispering certain things in your ear!`,
+    image: "/character/four.png",
+  },
+  {
+    content: `You're beautiful, you're smart, you're crazy, you're sexy asf and I absolutely love it`,
+    image: "/character/five.png",
+  },
+  {
+    content: "So Omolara, I've got just one question for you...",
+    image: "/character/six.png",
+  },
+  {
+    content: "Will you be my Valentine???",
+    image: "/character/seven.png",
+  },
+];
 
 function JessyProposal() {
   const email = "akanizara@gmail.com";
-  const steps = [
-    {
-      content: "Heyyyy, Big Favsssss.",
-      image: "/character/one.png",
-    },
-    {
-      content: `It's been 1000+ days I have known and loved you. 1000!!!`,
-      image: "/character/two.png",
-    },
-    {
-      content: `I still remember the first day I saw you, wind blowing your hair, sexy abs showing out, your eyes taking me out.`,
-      image: "/character/three.png",
-    },
-    {
-      content: `I love you so much mama, words really aren't enough to describe how amazing you are.`,
-      image: "/character/four.png",
-    },
-    {
-      content: `I can't wait to see you, can't wait to hug you, can't wait to do a whole lot of things that I will be whispering in you ear real soon`,
-      image: "/character/five.png",
-    },
-    {
-      content: "So Dr Lawerence Favour Efe, I just have one question...",
-      image: "/character/six.png",
-    },
-    {
-      content: "Will you be my Valentine????",
-      image: "/character/seven.png",
-    },
-  ];
+
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
   const { width, height } = useWindowSize();
@@ -58,7 +59,7 @@ function JessyProposal() {
   };
 
   return (
-    <>
+    <div>
       {sheWantsToBeMyValentine && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -66,7 +67,7 @@ function JessyProposal() {
           transition={{ duration: 0.5 }}
         >
           <Confetti width={width} height={height} />
-          <div className="fixed top-0 left-0 w-full h-full bg-[#FFC5D3] flex flex-col items-center justify-center">
+          <div className="fixed top-0 left-0 w-full h-full bg-[#FF00FF] flex flex-col items-center justify-center">
             <motion.h1
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -83,7 +84,7 @@ function JessyProposal() {
           </div>
         </motion.div>
       )}
-      <div className="bg-[#FFC5D3] min-h-screen text-white p-5 flex flex-col items-center justify-center max-w-md mx-auto">
+      <div className="bg-[#FF00FF] min-h-screen text-white p-5 flex flex-col items-center justify-center max-w-md mx-auto">
         <motion.img
           key={currentStep}
           initial={{ opacity: 0, y: 20 }}
@@ -107,14 +108,14 @@ function JessyProposal() {
           <>
             <button
               onClick={() => setCurrentStep(currentStep + 1)}
-              className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
+              className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
             >
               Next
             </button>
             {currentStep > 0 && (
               <button
                 onClick={() => setCurrentStep(currentStep - 1)}
-                className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
+                className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
               >
                 Back
               </button>
@@ -125,21 +126,21 @@ function JessyProposal() {
           <>
             <button
               onClick={handleYesClick}
-              className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
+              className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
             >
               Yes
             </button>
 
             <button
               onClick={handleYesClick}
-              className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold"
+              className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold"
             >
               Yes
             </button>
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
