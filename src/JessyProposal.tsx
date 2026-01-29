@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import sendEmailNotification from "./services/emailjs";
 const steps = [
   {
-    content: "Heyyyy, Big tittiesss!.",
+    content: "Heyyyy, Big Titties!.",
     image: "/character/one.png",
   },
   {
@@ -17,7 +17,7 @@ const steps = [
     image: "/character/three.png",
   },
   {
-    content: `Can't wait to binge watch more episodes of The Office and even Rick and Morty while whispering certain things in your ear!`,
+    content: `Can't wait to binge more episodes of The Office and even Rick and Morty while whispering certain things in your ear!`,
     image: "/character/four.png",
   },
   {
