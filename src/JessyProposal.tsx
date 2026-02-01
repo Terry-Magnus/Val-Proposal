@@ -42,6 +42,19 @@ function JessyProposal() {
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
   const { width, height } = useWindowSize();
 
+  const playMusic = () => {
+  const audio = document.getElementById("bgm") as HTMLAudioElement | null;
+  if (!audio) return;
+
+  audio.volume = 0.8;
+  audio.play().catch(() => {
+    // browser blocked — but will succeed on next interaction
+  });
+};
+
+
+
+
   useEffect(() => {
     const imagePaths = [
       ...steps.map((step) => step.image),
@@ -54,6 +67,22 @@ function JessyProposal() {
     });
   }, []);
 
+  useEffect(() => {
+  const start = () => {
+    playMusic();
+    window.removeEventListener("click", start);
+    window.removeEventListener("touchstart", start);
+  };
+
+  window.addEventListener("click", start);
+  window.addEventListener("touchstart", start);
+
+  return () => {
+    window.removeEventListener("click", start);
+    window.removeEventListener("touchstart", start);
+  };
+}, []);
+
   const handleYesClick = () => {
     // sendEmailNotification(email);
     setSheWantsToBeMyValentine(true);
@@ -61,8 +90,8 @@ function JessyProposal() {
 
   return (
     <div>
-      <audio className="hidden" autoPlay id="bgm" loop>
-        <source src="/music/stephen-sanchez-evangeline.m4a" type="audio/mpeg" />
+      <audio className="hidden" id="bgm" loop preload="auto">
+        <source src="/music/stephen-sanchez-evangeline.m4a" type="audio/mp4" />
       </audio>
       {sheWantsToBeMyValentine && (
         <motion.div
