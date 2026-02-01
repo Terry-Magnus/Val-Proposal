@@ -6,14 +6,12 @@ import sendEmailNotification from "./services/emailjs";
 
 const steps = [
   {
-    title: `Hey Moonshine....`,
+    title: `Hey Sweet Girl....`,
     image: "/character/one.png",
     background: "bg-gradient-to-br from-pink-300 to-pink-500",
   },
   {
-    content: `
-      I can still remember the first day i saw you in your mom's shop. \n God you looked so beautiful. I thought you were your mom's baby sister lol
-      `,
+    content: `I don't know where to begin, but it's been \n  `,
     background: "bg-gradient-to-br from-pink-500 to-rose-300",
 
     image: "/character/five.png",

@@ -62,10 +62,7 @@ function JessyProposal() {
   return (
     <div>
       <audio className="hidden" autoPlay id="bgm" loop>
-        <source
-          src="../public/music/stephen-sanchez-evangeline.m4a"
-          type="audio/mpeg"
-        />
+        <source src="/music/stephen-sanchez-evangeline.m4a" type="audio/mpeg" />
       </audio>
       {sheWantsToBeMyValentine && (
         <motion.div
