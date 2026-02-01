@@ -4,64 +4,64 @@ import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 import sendEmailNotification from "./services/emailjs";
 
+const steps = [
+  {
+    title: `Hey Moonshine....`,
+    image: "/character/one.png",
+    background: "bg-gradient-to-br from-pink-300 to-pink-500",
+  },
+  {
+    content: `
+      I can still remember the first day i saw you in your mom's shop. \n God you looked so beautiful. I thought you were your mom's baby sister lol
+      `,
+    background: "bg-gradient-to-br from-pink-500 to-rose-300",
+
+    image: "/character/five.png",
+  },
+  {
+    content: `There are so many things I love about you. Your beauty captivates me, your voice soothes me, and your smile brightens my day. But it's not just your outer beauty that I adore - your kindness, intelligence, and quirky personality all make my heart skip a beat.`,
+    background: "bg-gradient-to-br from-rose-300 to-rose-500",
+
+    image: "/character/four.png",
+  },
+  {
+    content: `
+      There's just something MAGICAL about you mami..... 
+      `,
+    image: "/character/three.png",
+    background: "bg-gradient-to-br from-rose-500 to-fuchsia-300",
+  },
+  {
+    content: `Sometimes, I catch myself smiling for no reason at all... and then I realize I'm thinking of you. It's weird, because I used to be a more distant person, but you've changed that.`,
+    background: "bg-gradient-to-br from-fuchsia-300 to-fuchsia-500",
+    image: "/character/three.png",
+  },
+  {
+    content: `
+      I'd catch myself and say, 
+      "Ol'boy hard man like you don fall oh lol"
+      `,
+    background: "bg-gradient-to-br from-fuchsia-300 to-purple-300",
+    image: "/character/three.png",
+  },
+  {
+    content: `So, with all my heart, I want to ask you really something special...`,
+    background: "bg-gradient-to-br from-purple-300 to-purple-500",
+
+    image: "/character/six.png",
+  },
+  {
+    title: "My Sweet Lollipop, my Moonshine, Will you be my Valentine???",
+    image: "/character/seven.png",
+    background: "bg-gradient-to-br from-purple-500 to-purple-800",
+  },
+];
+
 const RomanticValentineProposal = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isAccepted, setIsAccepted] = useState(false);
   const { width, height } = useWindowSize();
   const email = "crackmastermike@gmail.com";
-
-  const steps = [
-    {
-      title: `Hey Moonshine....`,
-      image: "/character/one.png",
-      background: "bg-gradient-to-br from-pink-300 to-pink-500",
-    },
-    {
-      content: `
-      I can still remember the first day i saw you in your mom's shop. \n God you looked so beautiful. I thought you were your mom's baby sister lol
-      `,
-      background: "bg-gradient-to-br from-pink-500 to-rose-300",
-
-      image: "/character/five.png",
-    },
-    {
-      content: `There are so many things I love about you. Your beauty captivates me, your voice soothes me, and your smile brightens my day. But it's not just your outer beauty that I adore - your kindness, intelligence, and quirky personality all make my heart skip a beat.`,
-      background: "bg-gradient-to-br from-rose-300 to-rose-500",
-
-      image: "/character/four.png",
-    },
-    {
-      content: `
-      There's just something MAGICAL about you mami..... 
-      `,
-      image: "/character/three.png",
-      background: "bg-gradient-to-br from-rose-500 to-fuchsia-300",
-    },
-    {
-      content: `Sometimes, I catch myself smiling for no reason at all... and then I realize I'm thinking of you. It's weird, because I used to be a more distant person, but you've changed that.`,
-      background: "bg-gradient-to-br from-fuchsia-300 to-fuchsia-500",
-      image: "/character/three.png",
-    },
-    {
-      content: `
-      I'd catch myself and say, 
-      "Ol'boy hard man like you don fall oh lol"
-      `,
-      background: "bg-gradient-to-br from-fuchsia-300 to-purple-300",
-      image: "/character/three.png",
-    },
-    {
-      content: `So, with all my heart, I want to ask you really something special...`,
-      background: "bg-gradient-to-br from-purple-300 to-purple-500",
-
-      image: "/character/six.png",
-    },
-    {
-      title: "My Sweet Lollipop, my Moonshine, Will you be my Valentine???",
-      image: "/character/seven.png",
-      background: "bg-gradient-to-br from-purple-500 to-purple-800",
-    },
-  ];
 
   const handleYesClick = () => {
     sendEmailNotification(email);

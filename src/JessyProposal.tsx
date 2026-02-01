@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
-import sendEmailNotification from "./services/emailjs";
+// import sendEmailNotification from "./services/emailjs";
+
 const steps = [
   {
     content: "Heyyyy, Big Titties!.",
@@ -35,7 +36,7 @@ const steps = [
 ];
 
 function JessyProposal() {
-  const email = "akanizara@gmail.com";
+  // const email = "akanizara@gmail.com";
 
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
@@ -54,12 +55,18 @@ function JessyProposal() {
   }, []);
 
   const handleYesClick = () => {
-    sendEmailNotification(email);
+    // sendEmailNotification(email);
     setSheWantsToBeMyValentine(true);
   };
 
   return (
     <div>
+      <audio className="hidden" autoPlay id="bgm" loop>
+        <source
+          src="../public/music/stephen-sanchez-evangeline.m4a"
+          type="audio/mpeg"
+        />
+      </audio>
       {sheWantsToBeMyValentine && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -107,7 +114,9 @@ function JessyProposal() {
         {currentStep < 6 && (
           <>
             <button
-              onClick={() => setCurrentStep(currentStep + 1)}
+              onClick={() => {
+                setCurrentStep(currentStep + 1);
+              }}
               className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
             >
               Next
