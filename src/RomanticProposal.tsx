@@ -25,7 +25,7 @@ const steps = [
     background: "bg-gradient-to-br from-pink-600 to-pink-700",
   },
   {
-    content: `Funny enough, I would have sworn last year that I would never fall in love with you but here I am, lovestruck and dazed by you.`,
+    content: `Funny enough, I would have sworn last year that I would never fall in love but here I am, lovestruck and dazed by you.`,
     background: "bg-gradient-to-br from-pink-700 to-fuchsia-500",
     image: "/character/three.png",
   },
@@ -55,6 +55,34 @@ const RomanticValentineProposal = () => {
   const handleYesClick = () => {
     setIsAccepted(true);
   };
+
+  const playMusic = () => {
+    const audio = document.getElementById("bgm") as HTMLAudioElement | null;
+    if (!audio) return;
+
+    audio.volume = 0.8;
+    audio.play().catch((error) => {
+      // browser blocked — but will succeed on next interaction
+      console.error(error);
+    });
+  };
+
+  useEffect(() => {
+    const start = () => {
+      playMusic();
+      window.removeEventListener("click", start);
+      window.removeEventListener("touchstart", start);
+    };
+
+    window.addEventListener("click", start);
+    window.addEventListener("touchstart", start);
+
+    return () => {
+      window.removeEventListener("click", start);
+      window.removeEventListener("touchstart", start);
+    };
+  }, []);
+
   useEffect(() => {
     const imagePaths = [
       ...steps.map((step) => step.image),
@@ -67,110 +95,117 @@ const RomanticValentineProposal = () => {
     });
   }, []);
 
-  if (isAccepted) {
-    return (
-      <div className="min-h-screen flex flex-col items-center bg-violet-800 justify-center text-center p-4">
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="bg-white rounded-full text-center py-8 px-4 mb-6"
-        >
-          <Confetti width={width} height={height} />
-
-          <motion.h1
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.3, type: "spring" }}
-            className="text-rose-600 text-3xl text-center font-bold"
-          >
-            Yayyyyyyy!!!!!
-          </motion.h1>
-          <img
-            src="/character/yayyyy.png"
-            alt=""
-            className="w-40 animate-bounce mx-auto"
-          />
-        </motion.div>
-      </div>
-    );
-  }
-
   return (
     <div
-      className={`min-h-screen flex flex-col ${steps[currentStep].background}`}
+      className={`min-h-screen flex flex-col items-center bg-violet-800 justify-center text-center p-4 ${isAccepted ? "bg-violet-800" : steps[currentStep].background}`}
     >
-      <div className="my-10 flex flex-col justify-center items-center text-center p-4">
-        <AnimatePresence mode="wait">
+      <audio className="hidden" id="bgm" loop preload="auto">
+        <source
+          src="/music/Until-I-Found-Her-Stephen-Sanchez.m4a"
+          type="audio/mp4"
+        />
+      </audio>
+
+      {isAccepted ? (
+        <div>
           <motion.div
-            key={currentStep}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-md"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            className="bg-white rounded-full text-center py-8 px-4 mb-6"
           >
-            <motion.img
-              key={currentStep}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              src={steps[currentStep].image}
+            <Confetti width={width} height={height} />
+
+            <motion.h1
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.3, type: "spring" }}
+              className="text-rose-600 text-3xl text-center font-bold"
+            >
+              Yayyyyyyy!!!!!
+            </motion.h1>
+            <img
+              src="/character/yayyyy.png"
               alt=""
-              className="w-40 mx-auto"
+              className="w-40 animate-bounce mx-auto"
             />
-            <motion.div
-              key={currentStep + "-text"}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="font-josefin text-center text-white"
-            >
-              <span className="text-4xl font-bold">
-                {steps[currentStep]?.title}
-              </span>
-              <span className="text-2xl font-poppins">
-                {steps[currentStep]?.content}
-              </span>
-            </motion.div>
           </motion.div>
-        </AnimatePresence>
-      </div>
+        </div>
+      ) : (
+        <>
+          <div className="my-10 flex flex-col justify-center items-center text-center p-4">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStep}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-md"
+              >
+                <motion.img
+                  key={currentStep}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  src={steps[currentStep].image}
+                  alt=""
+                  className="w-40 mx-auto"
+                />
+                <motion.div
+                  key={currentStep + "-text"}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="font-josefin text-center text-white"
+                >
+                  <span className="text-4xl font-bold">
+                    {steps[currentStep]?.title}
+                  </span>
+                  <span className="text-2xl font-poppins">
+                    {steps[currentStep]?.content}
+                  </span>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-      {currentStep < steps.length - 1 && (
-        <div className="mx-20 p-4 mb-10">
-          <button
-            onClick={() => setCurrentStep(currentStep + 1)}
-            className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
-          >
-            Next
-          </button>
-          {currentStep > 0 && (
-            <button
-              onClick={() => setCurrentStep(currentStep - 1)}
-              className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
-            >
-              Previous
-            </button>
+          {currentStep < steps.length - 1 && (
+            <div className="w-80 p-4 mb-10">
+              <button
+                onClick={() => setCurrentStep(currentStep + 1)}
+                className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
+              >
+                Next
+              </button>
+              {currentStep > 0 && (
+                <button
+                  onClick={() => setCurrentStep(currentStep - 1)}
+                  className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
+                >
+                  Previous
+                </button>
+              )}
+            </div>
           )}
-        </div>
-      )}
 
-      {currentStep === steps.length - 1 && (
-        <div className="mx-15">
-          <button
-            onClick={handleYesClick}
-            className="bg-white text-purple-800 py-3  text-xl rounded-xl w-full font-semibold"
-          >
-            Yes
-          </button>
-
-          <button
-            onClick={handleYesClick}
-            className="bg-white text-purple-800 py-3 text-xl rounded-xl w-full mt-5 font-semibold"
-          >
-            Yes
-          </button>
-        </div>
+          {currentStep === steps.length - 1 && (
+            <div className="w-80 p-4 mb-10">
+              {" "}
+              <button
+                onClick={handleYesClick}
+                className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
+              >
+                Yes
+              </button>
+              <button
+                onClick={handleYesClick}
+                className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
+              >
+                Yes
+              </button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
