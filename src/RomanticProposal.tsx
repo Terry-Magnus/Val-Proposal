@@ -2,54 +2,46 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
-import sendEmailNotification from "./services/emailjs";
 
 const steps = [
   {
-    title: `Hey Sweet Girl....`,
+    title: `Hey gorgeous....`,
     image: "/character/one.png",
-    background: "bg-gradient-to-br from-pink-300 to-pink-500",
+    background: "bg-gradient-to-br from-[#FF00FF] to-pink-500",
   },
   {
-    content: `I don't know where to begin, but it's been \n  `,
-    background: "bg-gradient-to-br from-pink-500 to-rose-300",
-
+    content: `I've been thinking about you a lot lately, and it seems you i can't get you out of my head.`,
+    background: "bg-gradient-to-br from-pink-500 to-rose-400",
     image: "/character/five.png",
   },
   {
-    content: `There are so many things I love about you. Your beauty captivates me, your voice soothes me, and your smile brightens my day. But it's not just your outer beauty that I adore - your kindness, intelligence, and quirky personality all make my heart skip a beat.`,
-    background: "bg-gradient-to-br from-rose-300 to-rose-500",
-
+    content: `I find myself smiling at our memories together very often and I can't help but feel grateful for every moment we've shared so far.`,
+    background: "bg-gradient-to-br from-rose-400 to-pink-600",
     image: "/character/four.png",
   },
   {
-    content: `
-      There's just something MAGICAL about you mami..... 
-      `,
+    content: `I know we've only been together for a while but it doesn't feel that way at all and I can't help but look forward to spending quality time with you and creating more memories...`,
     image: "/character/three.png",
-    background: "bg-gradient-to-br from-rose-500 to-fuchsia-300",
+    background: "bg-gradient-to-br from-pink-600 to-pink-700",
   },
   {
-    content: `Sometimes, I catch myself smiling for no reason at all... and then I realize I'm thinking of you. It's weird, because I used to be a more distant person, but you've changed that.`,
-    background: "bg-gradient-to-br from-fuchsia-300 to-fuchsia-500",
+    content: `Funny enough, I would have sworn last year that I would never fall in love with you but here I am, lovestruck and dazed by you.`,
+    background: "bg-gradient-to-br from-pink-700 to-fuchsia-500",
     image: "/character/three.png",
   },
   {
-    content: `
-      I'd catch myself and say, 
-      "Ol'boy hard man like you don fall oh lol"
-      `,
-    background: "bg-gradient-to-br from-fuchsia-300 to-purple-300",
+    content: `I've been thinking about us lately and this thing between us is so amazing that it makes me want to smile ear to ear like a newborn just by staring into your eyes and holding your hands.`,
+    background: "bg-gradient-to-br from-fuchsia-700 to-purple-300",
     image: "/character/three.png",
   },
   {
     content: `So, with all my heart, I want to ask you really something special...`,
     background: "bg-gradient-to-br from-purple-300 to-purple-500",
-
     image: "/character/six.png",
   },
   {
-    title: "My Sweet Lollipop, my Moonshine, Will you be my Valentine???",
+    title:
+      "My Sweet Woman, my Sunshine, Odinkem🤭,  Will you be my Valentine???",
     image: "/character/seven.png",
     background: "bg-gradient-to-br from-purple-500 to-purple-800",
   },
@@ -59,10 +51,8 @@ const RomanticValentineProposal = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isAccepted, setIsAccepted] = useState(false);
   const { width, height } = useWindowSize();
-  const email = "crackmastermike@gmail.com";
 
   const handleYesClick = () => {
-    sendEmailNotification(email);
     setIsAccepted(true);
   };
   useEffect(() => {
@@ -150,14 +140,14 @@ const RomanticValentineProposal = () => {
         <div className="mx-20 p-4 mb-10">
           <button
             onClick={() => setCurrentStep(currentStep + 1)}
-            className="bg-white text-purple-800 py-3 text-xl rounded-xl w-full mt-5 font-semibold"
+            className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
           >
             Next
           </button>
           {currentStep > 0 && (
             <button
               onClick={() => setCurrentStep(currentStep - 1)}
-              className="bg-white text-purple-800 py-3 text-xl rounded-xl w-full mt-5 font-semibold"
+              className="bg-black cursor-pointer text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
             >
               Previous
             </button>
